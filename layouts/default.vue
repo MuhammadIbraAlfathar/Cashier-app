@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <v-navigation-drawer
-      v-model="drawer"
+      v-model="sideDrawer"
       :mini-variant="miniVariant"
       :clipped="clipped"
       fixed
@@ -29,7 +29,7 @@
       fixed
       app
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-app-bar-nav-icon @click.stop="sideDrawer = !sideDrawer" />
       <v-btn
         icon
         @click.stop="miniVariant = !miniVariant"
@@ -94,7 +94,7 @@ export default {
   data () {
     return {
       clipped: false,
-      drawer: false,
+      sideDrawer: false,
       fixed: false,
       items: [
         {
