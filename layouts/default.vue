@@ -27,14 +27,42 @@
       fixed
       app
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" /> -->
       <v-toolbar-title>{{ title }}</v-toolbar-title>
     </v-app-bar>
+
     <v-main>
       <v-container>
         <Nuxt />
       </v-container>
     </v-main>
+
+
+    <!-- Footer -->
+    <v-bottom-navigation
+    horizontal
+    height="10vh"
+    fixed
+    color="primary"
+    app
+    >
+      <v-app-bar-nav-icon
+      @click.stop="drawer = !drawer"
+      v-ripple="false"
+      plain
+      />
+        <v-btn v-for="(item, i) in bottomMenu" 
+        :key="i"
+        :to="item.to"
+        v-ripple="false"
+        plain>
+        <span>{{ item.title }}</span>
+        <v-icon>{{ item.icon }}</v-icon>
+        </v-btn>
+        <v-spacer/>
+    </v-bottom-navigation>
+
+
   </v-app>
 </template>
 
@@ -46,11 +74,6 @@ export default {
       drawer: false,
       items: [
         {
-          icon: 'mdi-application',
-          title: 'Application',
-          to: '/'
-        },
-        {
           icon: 'mdi-account',
           title: 'Account',
           to: '/account'
@@ -60,6 +83,13 @@ export default {
           title: 'Notification',
           to: '/notification'
         }
+      ],
+      bottomMenu: [
+        {
+          icon: 'mdi-application',
+          title: 'Application',
+          to: '/'
+        },
       ],
       right: true,
       title: 'Cashier App'
