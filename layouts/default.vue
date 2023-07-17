@@ -1,10 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer
-      v-model="drawer"
-      fixed
-      app
-    >
+    <v-navigation-drawer v-model="drawer" fixed app>
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
@@ -29,61 +25,54 @@
       </v-container>
     </v-main>
 
-
     <!-- Footer -->
-    <v-bottom-navigation
-    horizontal
-    height="10vh"
-    fixed
-    color="primary"
-    app
-    >
+    <v-bottom-navigation horizontal height="10vh" fixed color="primary" app>
       <v-app-bar-nav-icon
-      @click.stop="drawer = !drawer"
-      v-ripple="false"
-      plain
+        @click.stop="drawer = !drawer"
+        v-ripple="false"
+        plain
       />
-        <v-btn v-for="(item, i) in bottomMenu" 
+      <v-btn
+        v-for="(item, i) in bottomMenu"
         :key="i"
         :to="item.to"
         v-ripple="false"
-        plain>
+        plain
+      >
         <span>{{ item.title }}</span>
         <v-icon>{{ item.icon }}</v-icon>
-        </v-btn>
-        <v-spacer/>
+      </v-btn>
+      <v-spacer />
     </v-bottom-navigation>
-
-
   </v-app>
 </template>
 
 <script>
 export default {
-  name: 'DefaultLayout',
-  data () {
+  name: "DefaultLayout",
+  data() {
     return {
       drawer: false,
       items: [
         {
-          icon: 'mdi-account',
-          title: 'Account',
-          to: '/account'
+          icon: "mdi-account",
+          title: "Account",
+          to: "/account",
         },
         {
-          icon: 'mdi-bell',
-          title: 'Notification',
-          to: '/notification'
-        }
+          icon: "mdi-bell",
+          title: "Notification",
+          to: "/notification",
+        },
       ],
       bottomMenu: [
         {
-          icon: 'mdi-application',
-          title: 'Application',
-          to: '/'
+          icon: "mdi-application",
+          title: "Application",
+          to: "/",
         },
       ],
-    }
-  }
-}
+    };
+  },
+};
 </script>
