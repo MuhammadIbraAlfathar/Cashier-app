@@ -62,7 +62,7 @@ export default {
         }
       ],
       right: true,
-      title: 'Vuetify.js'
+      title: 'Cashier App'
     }
   }
 }
