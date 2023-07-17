@@ -1,8 +1,9 @@
 <template>
   <v-app dark>
     <v-navigation-drawer
-      v-model="sideDrawer"
-      :clipped="clipped"
+
+      v-model="drawer"
+
       fixed
       app
     >
@@ -28,56 +29,44 @@
       fixed
       app
     >
-      <v-app-bar-nav-icon @click.stop="sideDrawer = !sideDrawer" />
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
+
+      <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" /> -->
+
       <v-toolbar-title>{{ title }}</v-toolbar-title>
-      <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
     </v-app-bar>
+
     <v-main>
       <v-container>
         <Nuxt />
       </v-container>
     </v-main>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
+
+
+    <!-- Footer -->
+    <v-bottom-navigation
+    horizontal
+    height="10vh"
+    fixed
+    color="primary"
+    app
     >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+      <v-app-bar-nav-icon
+      @click.stop="drawer = !drawer"
+      v-ripple="false"
+      plain
+      />
+        <v-btn v-for="(item, i) in bottomMenu" 
+        :key="i"
+        :to="item.to"
+        v-ripple="false"
+        plain>
+        <span>{{ item.title }}</span>
+        <v-icon>{{ item.icon }}</v-icon>
+        </v-btn>
+        <v-spacer/>
+    </v-bottom-navigation>
+
+
   </v-app>
 </template>
 
@@ -86,24 +75,28 @@ export default {
   name: 'DefaultLayout',
   data () {
     return {
-      clipped: false,
-      sideDrawer: false,
-      fixed: false,
+      drawer: false,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
+          icon: 'mdi-account',
+          title: 'Account',
+          to: '/account'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          icon: 'mdi-bell',
+          title: 'Notification',
+          to: '/notification'
         }
       ],
+      bottomMenu: [
+        {
+          icon: 'mdi-application',
+          title: 'Application',
+          to: '/'
+        },
+      ],
       right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Cashier App'
     }
   }
 }
