@@ -1,9 +1,7 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-navigation-drawer
-
       v-model="drawer"
-
       fixed
       app
     >
@@ -24,16 +22,6 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-    >
-
-      <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" /> -->
-
-      <v-toolbar-title>{{ title }}</v-toolbar-title>
-    </v-app-bar>
 
     <v-main>
       <v-container>
@@ -95,8 +83,6 @@ export default {
           to: '/'
         },
       ],
-      right: true,
-      title: 'Cashier App'
     }
   }
 }
