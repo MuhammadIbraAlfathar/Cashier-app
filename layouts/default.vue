@@ -70,14 +70,19 @@ export default {
       drawer: false,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
+          icon: 'mdi-application',
+          title: 'Application',
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          icon: 'mdi-account',
+          title: 'Account',
+          to: '/account'
+        },
+        {
+          icon: 'mdi-bell',
+          title: 'Notification',
+          to: '/notification'
         }
       ],
       right: true,
