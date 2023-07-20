@@ -8,7 +8,7 @@
           ></v-img>
         </v-card-action>
 
-        <v-card-text>
+        <v-card-text align="center" class="product-title">
           {{ product.title }}
         </v-card-text>
       </v-card>
@@ -131,3 +131,11 @@ export default {
   },
 };
 </script>
+
+<style>
+.product-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+</style>
