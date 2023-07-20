@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col v-for="(product, index) in products" :key="index" cols="2">
-      <v-card :title="product.title">
+      <v-card :title="product.title" :ripple="true">
         <v-card-action>
           <v-img
             :src="require(`@/assets/image/products/${product.thumbnail}`)"
