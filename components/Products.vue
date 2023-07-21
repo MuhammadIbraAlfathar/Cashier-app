@@ -1,7 +1,12 @@
 <template>
   <v-row>
     <v-row>
-      <v-col cols="10"> Search </v-col>
+      <v-col cols="10">
+        <v-autocomplete
+          label="Products"
+          placeholder="Start typing to search.."
+        ></v-autocomplete>
+      </v-col>
 
       <v-col cols="2">
         <v-menu>
