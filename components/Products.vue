@@ -1,18 +1,32 @@
 <template>
   <v-row>
-    <v-col v-for="(product, index) in products" :key="index" cols="2">
-      <v-card :title="product.title" :ripple="true">
-        <v-card-action>
-          <v-img
-            :src="require(`@/assets/image/products/${product.thumbnail}`)"
-          ></v-img>
-        </v-card-action>
+    <v-row>
+      <v-col cols="10"> Search </v-col>
 
-        <v-card-text align="center" class="product-title">
-          {{ product.title }}
-        </v-card-text>
-      </v-card>
-    </v-col>
+      <v-col cols="2">
+        <v-menu>
+          <template v-slot:activator="{ on: category }">
+            <v-btn v-on="category" color="primary"> Category </v-btn>
+          </template>
+        </v-menu>
+      </v-col>
+    </v-row>
+
+    <v-row>
+      <v-col v-for="(product, index) in products" :key="index" cols="2">
+        <v-card :title="product.title" :ripple="true">
+          <v-card-action>
+            <v-img
+              :src="require(`@/assets/image/products/${product.thumbnail}`)"
+            ></v-img>
+          </v-card-action>
+
+          <v-card-text align="center" class="product-title">
+            {{ product.title }}
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
   </v-row>
 </template>
 
