@@ -8,6 +8,14 @@
           <template v-slot:activator="{ on: category }">
             <v-btn v-on="category" color="primary"> Category </v-btn>
           </template>
+
+          <v-list>
+            <v-list-item-group>
+              <v-list-item v-for="(category, index) in categories">
+                <v-list-item-title>{{ category.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list-item-group>
+          </v-list>
         </v-menu>
       </v-col>
     </v-row>
