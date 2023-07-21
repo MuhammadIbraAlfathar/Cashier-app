@@ -5,6 +5,8 @@
         <v-autocomplete
           label="Products"
           placeholder="Start typing to search.."
+          :search-input.sync="search"
+          :loading="isLoading"
         ></v-autocomplete>
       </v-col>
 
@@ -71,6 +73,9 @@ export default {
           title: "Televisi",
         },
       ],
+
+      search: null,
+      isLoading: false,
 
       products: [
         {
@@ -189,6 +194,16 @@ export default {
       }
 
       return this.products;
+    },
+  },
+
+  watch: {
+    search(val) {
+      console.log(val);
+      this.isLoading = true;
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 1000);
     },
   },
 };
