@@ -7,6 +7,9 @@
           placeholder="Start typing to search.."
           :search-input.sync="search"
           :loading="isLoading"
+          :items="itemSearch"
+          item-text="title"
+          item-value="id"
         ></v-autocomplete>
       </v-col>
 
@@ -76,6 +79,7 @@ export default {
 
       search: null,
       isLoading: false,
+      itemSearch: [],
 
       products: [
         {
@@ -202,7 +206,10 @@ export default {
       console.log(val);
       this.isLoading = true;
       setTimeout(() => {
-        this.isLoading = false;
+        this.itemSearch = this.products.filter((e) => {
+          this.isLoading = false;
+          return e.title;
+        });
       }, 1000);
     },
   },
