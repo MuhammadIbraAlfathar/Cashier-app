@@ -207,6 +207,12 @@ export default {
     },
   },
 
+  methods: {
+    resetByCategory() {
+      this.categoryId = false;
+    },
+  },
+
   watch: {
     search(val) {
       console.log(val);
@@ -214,6 +220,7 @@ export default {
       setTimeout(() => {
         this.itemSearch = this.products.filter((e) => {
           this.isLoading = false;
+          this.resetByCategory();
           return e.title;
         });
       }, 1000);
