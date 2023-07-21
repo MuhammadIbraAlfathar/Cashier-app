@@ -13,6 +13,7 @@
             <v-list-item-group v-model="categoryId">
               <v-list-item
                 v-for="(category, index) in categories"
+                :key="index"
                 :value="category.id"
                 :disabled="category.id == categoryId"
               >
