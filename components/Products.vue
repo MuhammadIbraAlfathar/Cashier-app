@@ -34,6 +34,21 @@
 export default {
   data() {
     return {
+      categories: [
+        {
+          id: 1,
+          title: "Smartphone",
+        },
+        {
+          id: 2,
+          title: "Camera",
+        },
+        {
+          id: 3,
+          title: "Television",
+        },
+      ],
+
       products: [
         {
           id: 1,
