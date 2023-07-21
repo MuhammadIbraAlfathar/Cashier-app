@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-row>
+    <v-row align="center">
       <v-col cols="10">
         <v-autocomplete
           label="Products"
