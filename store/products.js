@@ -134,3 +134,9 @@ export const mutations = {
     state.categoryId = categoryId;
   },
 };
+
+export const actions = {
+  updateCategoryId({ commit }, categoryId) {
+    commit("updateCategoryId", categoryId);
+  },
+};
