@@ -106,4 +106,23 @@ export const state = () => ({
       categoryId: 3,
     },
   ],
+
+  categories: [
+    {
+      id: false,
+      title: "All",
+    },
+    {
+      id: 1,
+      title: "Smartphone",
+    },
+    {
+      id: 2,
+      title: "Camera",
+    },
+    {
+      id: 3,
+      title: "Televisi",
+    },
+  ],
 });
