@@ -125,4 +125,12 @@ export const state = () => ({
       title: "Televisi",
     },
   ],
+
+  categoryId: 0,
 });
+
+export const mutations = {
+  updateCategoryId(state, categoryId) {
+    state.categoryId = categoryId;
+  },
+};
