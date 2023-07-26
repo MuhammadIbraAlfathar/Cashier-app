@@ -35,6 +35,13 @@ export const mutations = {
   incrementItem(state, id) {
     state.items.find((item) => item.id === id).quantity++;
   },
+
+  decrementItem(state, id) {
+    let item = state.items.find((item) => item.id === id);
+    if (item.quantity > 1) {
+      item.quantity--;
+    }
+  },
 };
 
 export const actions = {
@@ -45,5 +52,13 @@ export const actions = {
     } else {
       commit("addItem", id);
     }
+  },
+
+  increment({ commit }, id) {
+    commit("incrementItem", id);
+  },
+
+  decrement({ commit }, id) {
+    commit("decrementItem", id);
   },
 };
