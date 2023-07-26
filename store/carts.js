@@ -38,6 +38,10 @@ export const getters = {
       return total + item.price * item.quantity;
     }, 0);
   },
+
+  calculateTax: (state, getters) => (value) => {
+    return (getters.subTotal * value) / 100;
+  },
 };
 
 export const mutations = {
