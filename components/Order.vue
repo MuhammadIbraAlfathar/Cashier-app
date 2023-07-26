@@ -39,6 +39,18 @@
             {{ currency(itemTotal(item.price, item.quantity)) }}
           </v-list-item-action>
         </v-list-item>
+
+        <v-list-item
+          v-if="items.length"
+          class="text-h6 black--text grey lighten-2"
+        >
+          <v-list-item-content>
+            <v-list-item-title> Sub Total </v-list-item-title>
+          </v-list-item-content>
+          <v-list-action>
+            <v-list-item-title> {{ currency(subTotal) }} </v-list-item-title>
+          </v-list-action>
+        </v-list-item>
       </v-list>
     </v-col>
   </v-row>
@@ -68,6 +80,7 @@ export default {
     ...mapGetters("carts", {
       cartItems: "cartItem",
       itemTotal: "itemTotal",
+      subTotal: "subTotal",
     }),
   },
 };
